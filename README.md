@@ -1,8 +1,8 @@
-Checkout [my blog post][https://jlospinoso.github.io/subliminal-channel/twitter/poco/cryptography/c++/developing/software/2016/02/06/twitter-subliminal.html]
+Checkout [my blog post](https://jlospinoso.github.io/subliminal-channel/twitter/poco/cryptography/c++/developing/software/2016/02/06/twitter-subliminal.html)
 about twitter-subliminal before you dive in!
 
 # Register a Twitter Application
-You'll have to go to [https://apps.twitter.com/][https://apps.twitter.com/] and register for a new app.
+You'll have to go to [https://apps.twitter.com/](https://apps.twitter.com/) and register for a new app.
 Once you've done this, save your Consumer Key and Consumer Secret in the "Keys and Access Tokens" Tab.
 
 Click "Create my access token", and save the Access Token and Access Token Secret.
