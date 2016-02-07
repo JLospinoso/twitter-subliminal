@@ -1,0 +1,21 @@
+# Encoding defaults
+blocksize : 8
+
+# Twitter account information
+# TODO: Sign up for an account and add information here. See README.md.
+consumer.key : abcd123abcd123abcd123abcd123
+secret.key : abcd123abcd123abcd123abcd123ab
+access.token : abcd123abcd123abcd123abcd123
+access.token.secret : abcd123abcd123abcd123
+ca.path :
+lang : en
+
+# Logging defaults
+log.file : twitter-subliminal.log
+log.level : information
+log.pattern : %Y-%m-%d %H:%M:%S %s %p [%P %I] %t
+
+# Performance Testing defaults
+update.interval : 20
+sample.time : 5
+blocks.trial : 10
