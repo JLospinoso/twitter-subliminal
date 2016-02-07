@@ -1,5 +1,5 @@
-Checkout [my blog post](https://jlospinoso.github.io/subliminal-channel/twitter/poco/cryptography/c++/developing/software/2016/02/06/twitter-subliminal.html)
-about twitter-subliminal before you dive in!
+**Checkout [my blog post](https://jlospinoso.github.io/subliminal-channel/twitter/poco/cryptography/c++/developing/software/2016/02/06/twitter-subliminal.html)
+about twitter-subliminal before you dive in!**
 
 # Register a Twitter Application
 You'll have to go to [https://apps.twitter.com/](https://apps.twitter.com/) and register for a new app.
@@ -38,15 +38,17 @@ blocks.trial : 10
 ```
 
 If you have a directory with Certificate Authorities available in your environment, e.g. `/etc/ssl/certs` on
-a linux-like platform, you can fill in `ca.path` with this value.
+a linux-like platform, you can fill in `ca.path` with this value. If you keep it blank, you'll still be 
+accessing the Twitter API over SSL, but you won't be verifying the authenticity of Twitter's certificate
+with a certificate authority. This can open up major security issues.
 
-`lang` can be changed to the language you'd like your original tweets to be in. See [https://dev.twitter.com/streaming/overview][https://dev.twitter.com/streaming/overview].
+`lang` can be changed to the language you'd like your original tweets to be in. See [dev.twitter.com/streaming/overview](https://dev.twitter.com/streaming/overview).
 
 # Binaries
 You can either use the (64-bit) binaries from the /bin folder of the repo, or you can build your own.
 Just make sure that `twitter-subliminal.properties` is in the working directory.
 
-Note that you'll need to have [Poco][http://pocoproject.org/] installed in your environment
+Note that you'll need to have [Poco](http://pocoproject.org/) installed in your environment
 whether you built it or not!
 
 # Setting up your build environment
@@ -63,10 +65,10 @@ cd twitter-subliminal
 git clone git@github.com:google/googletest
 ```
 
-Next, ensure [Poco][http://pocoproject.org/] is installed in your environment. You won't need
+Next, ensure [Poco](http://pocoproject.org/) is installed in your environment. You won't need
 any of the Data or persistence bindings--NetSSL, Crypto, and the Core should do it. On Windows/Cygwin,
-you can install this with the Cygwin installer/package manager; on OS X, you can use [homebrew][http://brew.sh/],
-and on Linux you can check your favorite package manager, but it's easy enough to [install from source][http://pocoproject.org/download/].
+you can install this with the Cygwin installer/package manager; on OS X, you can use [homebrew](http://brew.sh/),
+and on Linux you can check your favorite package manager, but it's easy enough to [install from source](http://pocoproject.org/download/).
 
 Input your Poco configuration information into the cmake finder:
 
@@ -99,7 +101,7 @@ make
 This will compile and link all of your binaries into the build folder.
 
 # Building on Windows (cygwin)
-From a [Cygwin terminal][https://cygwin.com/],
+From a [Cygwin terminal](https://cygwin.com/),
 
 ```sh
 mkdir build
