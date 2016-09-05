@@ -15,7 +15,7 @@ docker run -it --rm \
     -e secret.key="aabcd123abcd123abcd123abcd123" \
     -e access.token="abcd123abcd123abcd123abcd123" \
     -e access.token.secret="abcd123abcd123abcd123" \
-     quay.io/jlospinoso/twitter-subliminal:0.3.0
+     quay.io/jlospinoso/twitter-subliminal:0.2.0
 ```
 
 From this interactive session, you'll be able to run all of the twitter-subliminal binaries.
