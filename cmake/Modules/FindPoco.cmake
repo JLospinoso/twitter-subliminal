@@ -2,14 +2,11 @@
 # Poco_INCLUDE_DIRS - Path to where the poco include files are.
 # Poco_LIBRARIES    - List of Poco libraries
 
-# Enable for Cygwin:
-#set(CMAKE_FIND_LIBRARY_SUFFIXES = .dll;.dll.a;.a;.so)
-set(CMAKE_FIND_LIBRARY_PREFIXES = cyg;lib)
 set(Poco_ROOT /usr/local)
 set(Poco_HEADER_SEARCH PATHS ${Poco_ROOT}/include NO_SYSTEM_PATH)
 set(Poco_LIBRARY_SEARCH PATHS ${Poco_ROOT}/lib NO_SYSTEM_PATH)
 
-message("Library: " ${Poco_LIBRARY_SEARCH})
+message(STATUS "Poco Library Search Path: ${Poco_LIBRARY_SEARCH}")
 find_path(Poco_INCLUDE_DIR Poco/Poco.h DOC "Path to Poco headers" ${Poco_HEADER_SEARCH})
 
 find_library(Poco_FOUNDATION_LIBRARY
@@ -78,27 +75,27 @@ else()
     message("[-] Could not find PocoData")
 endif()
 
-find_library(Poco_DATAMYSQL_LIBRARY
-        NAMES PocoDataMySQL PocoDataMySQLd
-        DOC "Path to Poco DATAMYSQL library"
-        ${Poco_LIBRARY_SEARCH}
-        )
-if(Poco_DATAMYSQL_LIBRARY)
-    set(Poco_LIBRARIES ${Poco_LIBRARIES} ${Poco_DATAMYSQL_LIBRARY})
-else()
-    message("[-] Could not find PocoDataMySQL")
-endif()
+#find_library(Poco_DATAMYSQL_LIBRARY
+#        NAMES PocoDataMySQL PocoDataMySQLd
+#        DOC "Path to Poco DATAMYSQL library"
+#        ${Poco_LIBRARY_SEARCH}
+#        )
+#if(Poco_DATAMYSQL_LIBRARY)
+#    set(Poco_LIBRARIES ${Poco_LIBRARIES} ${Poco_DATAMYSQL_LIBRARY})
+#else()
+#    message("[-] Could not find PocoDataMySQL")
+#endif()
 
-find_library(Poco_DATAODBC_LIBRARY
-        NAMES PocoDataODBC PocoDataODBCd
-        DOC "Path to Poco DataODBC library"
-        ${Poco_LIBRARY_SEARCH}
-        )
-if(Poco_DATAODBC_LIBRARY)
-    set(Poco_LIBRARIES ${Poco_LIBRARIES} ${Poco_DATAODBC_LIBRARY})
-else()
-    message("[-] Could not find PocoDataODBC")
-endif()
+#find_library(Poco_DATAODBC_LIBRARY
+#        NAMES PocoDataODBC PocoDataODBCd
+#        DOC "Path to Poco DataODBC library"
+#        ${Poco_LIBRARY_SEARCH}
+#        )
+#if(Poco_DATAODBC_LIBRARY)
+#    set(Poco_LIBRARIES ${Poco_LIBRARIES} ${Poco_DATAODBC_LIBRARY})
+#else()
+#    message("[-] Could not find PocoDataODBC")
+#endif()
 
 #find_library(Poco_DATASQLLITE_LIBRARY
 #        NAMES PocoDataSQLLite PocoDataSQLLited
@@ -111,16 +108,16 @@ endif()
 #    message("[-] Could not find PocoDataSQLLite")
 #endif()
 
-find_library(Poco_MONGODB_LIBRARY
-        NAMES PocoMongoDB PocoMongoDBd
-        DOC "Path to Poco MONGODB library"
-        ${Poco_LIBRARY_SEARCH}
-        )
-if(Poco_MONGODB_LIBRARY)
-    set(Poco_LIBRARIES ${Poco_LIBRARIES} ${Poco_MONGODB_LIBRARY})
-else()
-    message("[-] Could not find PocoMongoDB")
-endif()
+#find_library(Poco_MONGODB_LIBRARY
+#        NAMES PocoMongoDB PocoMongoDBd
+#        DOC "Path to Poco MONGODB library"
+#        ${Poco_LIBRARY_SEARCH}
+#        )
+#if(Poco_MONGODB_LIBRARY)
+#    set(Poco_LIBRARIES ${Poco_LIBRARIES} ${Poco_MONGODB_LIBRARY})
+#else()
+#    message("[-] Could not find PocoMongoDB")
+#endif()
 
 find_library(Poco_NET_LIBRARY
         NAMES PocoNet PocoNetd

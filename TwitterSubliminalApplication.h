@@ -8,6 +8,7 @@
 #include "Poco/PatternFormatter.h"
 #include "Poco/FormattingChannel.h"
 #include "Poco/Util/HelpFormatter.h"
+#include "Poco/Environment.h"
 
 #define PROPERTIES_NAME "twitter-subliminal.properties"
 
@@ -50,12 +51,25 @@ public:
 
         // Extract configuration keys
         std::string log_file, log_level, log_pattern;
+        bool setApiKeys = false;
         try {
-            consumer_key = config().getString("consumer.key");
-            secret_key = config().getString("secret.key");
-            access_token = config().getString("access.token");
-            access_token_secret = config().getString("access.token.secret");
+            Poco::Environment env;
+            consumer_key = env.get("consumer.key");
+            secret_key = env.get("secret.key");
+            access_token = env.get("access.token");
+            access_token_secret = env.get("access.token.secret");
+            setApiKeys = true;
+        } catch (Poco::NotFoundException e) {
+            logger().warning("Missing Twitter API keys in environment. Checking properties next.", std::string(PROPERTIES_NAME));
+        }
 
+        try {
+            if(!setApiKeys) {
+                consumer_key = config().getString("consumer.key");
+                secret_key = config().getString("secret.key");
+                access_token = config().getString("access.token");
+                access_token_secret = config().getString("access.token.secret");
+            }
             ca_path = config().getString("ca.path");
             lang = config().getString("lang");
 
@@ -64,12 +78,13 @@ public:
             log_level = config().getString("log.level");
             log_pattern = config().getString("log.pattern");
         } catch (Poco::NotFoundException e) {
-            logger().error("Missing properties in confugration file. See %s.example for a template", std::string(PROPERTIES_NAME));
+            logger().error("Missing properties in configuration file. See %s.example for a template", std::string(PROPERTIES_NAME));
             displayHelp();
             terminate_early = true;
             return;
         }
 
+        // Configure logging
         configure_logging(log_file, log_level, log_pattern);
 
         Application::initialize(self);

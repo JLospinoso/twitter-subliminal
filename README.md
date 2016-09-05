@@ -1,13 +1,23 @@
-**Checkout [my blog post](https://jlospinoso.github.io/subliminal-channel/twitter/poco/cryptography/c++/developing/software/2016/02/06/twitter-subliminal.html)
-about twitter-subliminal before you dive in!**
-
 # Register a Twitter Application
-You'll have to go to [https://apps.twitter.com/](https://apps.twitter.com/) and register for a new app.
-Once you've done this, save your Consumer Key and Consumer Secret in the "Keys and Access Tokens" Tab.
+You'll have to go to [https://apps.twitter.com/][https://apps.twitter.com/] and register for a new app. Once you've done this,
+
+Save your Consumer Key and Consumer Secret in the "Keys and Access Tokens" Tab.
 
 Click "Create my access token", and save the Access Token and Access Token Secret.
 
 After this process, you should have four (4) total tokens.
+
+# Easiest: Run from Docker
+
+```sh
+docker run -it --rm quay.io/jlospinoso/twitter-subliminal:0.3.0 \
+    -e consumer.key="abcd123abcd123abcd123abcd123"
+    -e secret.key="aabcd123abcd123abcd123abcd123"
+    -e access.token="abcd123abcd123abcd123abcd123"
+    -e access.token.secret="abcd123abcd123abcd123"
+```
+
+From this interactive session, you'll be able to run all of the twitter-subliminal binaries.
 
 # Configuring twitter-subliminal
 You must have a `twitter-subliminal.properties` file in the same directory as your executables. Using the
@@ -23,7 +33,7 @@ consumer.key : abcd123abcd123abcd123abcd123
 secret.key : abcd123abcd123abcd123abcd123
 access.token : abcd123abcd123abcd123abcd123
 access.token.secret : abcd123abcd123abcd123
-ca.path :
+ca.path : 
 lang : en
 
 # Logging defaults
@@ -38,18 +48,12 @@ blocks.trial : 10
 ```
 
 If you have a directory with Certificate Authorities available in your environment, e.g. `/etc/ssl/certs` on
-a linux-like platform, you can fill in `ca.path` with this value. If you keep it blank, you'll still be 
-accessing the Twitter API over SSL, but you won't be verifying the authenticity of Twitter's certificate
-with a certificate authority. This can open up major security issues.
+*nix, you can fill in `ca.path` with this value. 
 
-`lang` can be changed to the language you'd like your original tweets to be in. See [dev.twitter.com/streaming/overview](https://dev.twitter.com/streaming/overview).
+`lang` can be changed to the language you'd like your original tweets to be in. See [https://dev.twitter.com/streaming/overview][https://dev.twitter.com/streaming/overview].
 
 # Binaries
-You can either use the (64-bit) binaries from the /bin folder of the repo, or you can build your own.
-Just make sure that `twitter-subliminal.properties` is in the working directory.
-
-Note that you'll need to have [Poco](http://pocoproject.org/) installed in your environment
-whether you built it or not!
+You can either use the binaries from the /bin folder, or you can build your own. Just make sure that `twitter-subliminal.properties` is in the working directory.
 
 # Setting up your build environment
 Clone the repository:
@@ -65,15 +69,15 @@ cd twitter-subliminal
 git clone git@github.com:google/googletest
 ```
 
-Next, ensure [Poco](http://pocoproject.org/) is installed in your environment. You won't need
+Next, ensure [Poco][http://pocoproject.org/] is installed in your environment. You won't need
 any of the Data or persistence bindings--NetSSL, Crypto, and the Core should do it. On Windows/Cygwin,
-you can install this with the Cygwin installer/package manager; on OS X, you can use [homebrew](http://brew.sh/),
-and on Linux you can check your favorite package manager, but it's easy enough to [install from source](http://pocoproject.org/download/).
+you can install this with the Cygwin installer/package manager; on OS X, you can use [homebrew][http://brew.sh/],
+and on Linux you can check your favorite package manager, but it's easy enough to [install from source][http://pocoproject.org/download/].
 
 Input your Poco configuration information into the cmake finder:
 
 ```sh
-vi cmake/Modules/FindPoco.cmake
+vim cmake/Modules/FindPoco.cmake
 ```
 
 Edit the path to your Poco root, e.g.
@@ -88,7 +92,7 @@ or
 set(Poco_ROOT /usr/local/)
 ```
 
-# Building on OS X/linux
+# Building on OS X/*nix
 From `twitter-subliminal`,
 
 ```sh
@@ -101,7 +105,7 @@ make
 This will compile and link all of your binaries into the build folder.
 
 # Building on Windows (cygwin)
-From a [Cygwin terminal](https://cygwin.com/),
+From a [Cygwin terminal][https://cygwin.com/],
 
 ```sh
 mkdir build

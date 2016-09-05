@@ -107,6 +107,7 @@ private:
             std::this_thread::sleep_for(std::chrono::seconds(request_timeout_seconds));
             if(!response_received) {
                 logger.critical("Twitter receive_buffer is hanging. Check SSL settings; is your system clock correct?");
+                //throw std::runtime_error("Twitter hung during receive_buffered.");
             }
             return;
         });
