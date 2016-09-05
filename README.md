@@ -18,7 +18,14 @@ docker run -it --rm \
      quay.io/jlospinoso/twitter-subliminal:0.2.0
 ```
 
-From this interactive session, you'll be able to run all of the twitter-subliminal binaries.
+From this interactive session, you'll be able to run all of the twitter-subliminal binaries:
+
+* tse: message encryption
+* tsd: message decryption
+* tsp: performance testing
+* tst: unit testing
+* tsl: check rate limit status with Twitter Application
+* tsr: reset retweets
 
 # Configuring twitter-subliminal
 You must have a `twitter-subliminal.properties` file in the same directory as your executables. Using the
