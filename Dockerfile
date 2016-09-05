@@ -1,4 +1,4 @@
-FROM jalospinoso/libpoco:latest
+FROM quay.io/jlospinoso/libpoco:1.7.5
 MAINTAINER "Josh Lospinoso" josh@lospi.net
 RUN apt-get install software-properties-common -y && add-apt-repository ppa:george-edison55/cmake-3.x
 RUN apt-get update && apt-get upgrade -y
