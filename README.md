@@ -10,11 +10,12 @@ After this process, you should have four (4) total tokens.
 # Easiest: Run from Docker
 
 ```sh
-docker run -it --rm quay.io/jlospinoso/twitter-subliminal:0.3.0 \
-    -e consumer.key="abcd123abcd123abcd123abcd123"
-    -e secret.key="aabcd123abcd123abcd123abcd123"
-    -e access.token="abcd123abcd123abcd123abcd123"
-    -e access.token.secret="abcd123abcd123abcd123"
+docker run -it --rm \
+    -e consumer.key="abcd123abcd123abcd123abcd123" \
+    -e secret.key="aabcd123abcd123abcd123abcd123" \
+    -e access.token="abcd123abcd123abcd123abcd123" \
+    -e access.token.secret="abcd123abcd123abcd123" \
+     quay.io/jlospinoso/twitter-subliminal:0.3.0
 ```
 
 From this interactive session, you'll be able to run all of the twitter-subliminal binaries.
@@ -33,7 +34,7 @@ consumer.key : abcd123abcd123abcd123abcd123
 secret.key : abcd123abcd123abcd123abcd123
 access.token : abcd123abcd123abcd123abcd123
 access.token.secret : abcd123abcd123abcd123
-ca.path : 
+ca.path :
 lang : en
 
 # Logging defaults
@@ -48,7 +49,7 @@ blocks.trial : 10
 ```
 
 If you have a directory with Certificate Authorities available in your environment, e.g. `/etc/ssl/certs` on
-*nix, you can fill in `ca.path` with this value. 
+*nix, you can fill in `ca.path` with this value.
 
 `lang` can be changed to the language you'd like your original tweets to be in. See [https://dev.twitter.com/streaming/overview][https://dev.twitter.com/streaming/overview].
 
