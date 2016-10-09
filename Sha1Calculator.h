@@ -8,7 +8,7 @@
 
 class Sha1Calculator {
 public:
-    std::bitset<160> bitset_hash(std::string element) {
+    std::bitset<160> bitset_hash(const std::string &element) {
         auto digest_str = hash(element);
         auto bit_iterator = StringBitIterator(digest_str);
         auto ret = std::bitset<160>();
@@ -21,7 +21,7 @@ public:
         return ret;
     }
 
-    std::string hash(std::string element) {
+    std::string hash(const std::string &element) {
         digestEngine.reset();
         digestEngine.update(element);
         auto digest = digestEngine.digest();

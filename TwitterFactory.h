@@ -35,9 +35,9 @@ public:
     }
 
     std::unique_ptr<Twitter> make() const {
-        return std::unique_ptr<Twitter>(new Twitter(consumer_secret_key, secret_key, access_token, access_token_secret, ca_path, lang));
+        return std::make_unique<Twitter>(consumer_secret_key, secret_key, access_token, access_token_secret, ca_path, lang);
     }
 
 private:
-    std::string consumer_secret_key, secret_key, access_token, access_token_secret, ca_path, lang;
+    const std::string consumer_secret_key, secret_key, access_token, access_token_secret, ca_path, lang;
 };

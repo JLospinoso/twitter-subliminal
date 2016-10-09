@@ -5,7 +5,7 @@
 
 class Tweet {
 public:
-    Tweet(std::string tweet_id, std::bitset<160> sha1) :
+    Tweet(const std::string &tweet_id, std::bitset<160> sha1) :
             tweet_id(tweet_id), sha1(sha1) { };
 
     std::string get_tweet_id() const {

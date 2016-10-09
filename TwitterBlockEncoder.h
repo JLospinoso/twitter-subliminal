@@ -39,7 +39,6 @@ public:
     }
 
     Tweet encode(std::bitset<block_size> block) {
-
         auto digestion_status = digestion_future.wait_for(std::chrono::seconds(0));
         if(digestion_status == std::future_status::ready) {
             logger.warning("Digestion processing future completed; launching a new one.");

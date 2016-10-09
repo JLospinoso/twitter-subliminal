@@ -14,18 +14,18 @@ public:
               logger(Poco::Logger::get("TwitterBlockEncoder")) {
     }
 
-    void send(std::string message) {
+    void send(const std::string &message) {
         StringBitIterator stringBitIterator(message);
-        send_iterator(&stringBitIterator);
+        send_iterator(stringBitIterator);
     }
 
 private:
-    void send_iterator(BitIterator *iterator) {
+    void send_iterator(BitIterator &iterator) {
         block.reset();
         unsigned long bit_index = 0, bits_sent = 0;
-        while(iterator->has_next()) {
+        while(iterator.has_next()) {
             bits_sent++;
-            block[bit_index++] = iterator->next();
+            block[bit_index++] = iterator.next();
             if(bit_index == block_size) {
                 send_block();
                 block.reset();

@@ -20,7 +20,7 @@ set(TEST_FILES tests/StringBitIteratorTest.cpp tests/ShortBitIteratorTest.cpp te
         tests/TweetBlockCalculatorTest.cpp tests/IntegrationTest.cpp tests/TwitterFactoryTest.cpp
         tests/Sha1CalculatorTest.cpp tests/TweetBitIteratorTest.cpp)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 
 add_executable(tse encode_main.cpp ${SOURCE_FILES})
 add_executable(tsd decode_main.cpp ${SOURCE_FILES})

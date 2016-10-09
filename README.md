@@ -1,3 +1,5 @@
+![Twitter Subliminal](TwitterSubliminal.png "Twitter Subliminal")
+
 # Register a Twitter Application
 You'll have to go to [https://apps.twitter.com/][https://apps.twitter.com/] and register for a new app. Once you've done this,
 

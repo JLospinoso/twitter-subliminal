@@ -9,7 +9,7 @@
 template <size_t block_size>
 class TweetBitIterator : public BitIterator {
 public:
-    TweetBitIterator(std::vector<Tweet> tweets) :
+    TweetBitIterator(const std::vector<Tweet> &tweets) :
         tweets(tweets), bits(8*tweets.size()),
         tweet_index(0), current_tweet("", std::bitset<160>()) {
         configure_bitset();

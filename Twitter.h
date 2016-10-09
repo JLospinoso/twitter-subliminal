@@ -20,8 +20,8 @@ typedef std::function<void(std::string)> stream_callback;
 
 class Twitter  {
 public:
-    Twitter(std::string consumer_key, std::string consumer_secret_key, std::string access_token,
-            std::string access_token_secret, std::string ca_path, std::string lang, size_t request_timeout_seconds = 5) :
+    Twitter(const std::string &consumer_key, const std::string &consumer_secret_key, const std::string &access_token,
+            const std::string &access_token_secret, const std::string &ca_path, const std::string &lang, size_t request_timeout_seconds = 5) :
             ca_path(ca_path), lang(lang),
             creds(consumer_key, consumer_secret_key, access_token, access_token_secret),
             context(new Poco::Net::Context(Poco::Net::Context::CLIENT_USE, ca_path, ca_path.empty() ? Poco::Net::Context::VERIFY_NONE : Poco::Net::Context::VERIFY_RELAXED)),
@@ -60,8 +60,8 @@ public:
     };
 
     std::string  timelineUserGet(bool includeRetweets,
-                          std::string maxId = "",
-                          std::string userId = "") {
+                          const std::string &maxId = "",
+                          const std::string &userId = "") {
         Poco::URI uri("https://api.twitter.com/1.1/statuses/user_timeline.json");
         if(!userId.empty()) {
             uri.addQueryParameter("user_id", userId);
@@ -76,7 +76,7 @@ public:
         return receive("GET", uri);
     };
 private:
-    std::string receive(std::string type, Poco::URI uri) {
+    std::string receive(const std::string &type, const Poco::URI &uri) {
         Poco::Net::HTTPRequest request(type, uri.getPathAndQuery(), Poco::Net::HTTPMessage::HTTP_1_1);
         Poco::Net::HTMLForm form(request);
         Poco::Net::HTTPSClientSession session(uri.getHost(), uri.getPort(), context);
@@ -95,7 +95,7 @@ private:
         }
     }
 
-    void receive_buffered(std::string type, Poco::URI uri, stream_callback callback) {
+    void receive_buffered(const std::string &type, const Poco::URI &uri, stream_callback callback) {
         Poco::Net::HTTPRequest request(type, uri.getPathAndQuery(), Poco::Net::HTTPMessage::HTTP_1_1);
         Poco::Net::HTMLForm form(request);
         Poco::Net::HTTPSClientSession session(uri.getHost(), uri.getPort(), context);
@@ -107,7 +107,6 @@ private:
             std::this_thread::sleep_for(std::chrono::seconds(request_timeout_seconds));
             if(!response_received) {
                 logger.critical("Twitter receive_buffer is hanging. Check SSL settings; is your system clock correct?");
-                //throw std::runtime_error("Twitter hung during receive_buffered.");
             }
             return;
         });
@@ -129,7 +128,7 @@ private:
     }
 
     const size_t request_timeout_seconds;
-    std::string ca_path, lang;
+    const std::string ca_path, lang;
     Poco::Net::OAuth10Credentials creds;
     Poco::Net::Context::Ptr context;
     Poco::Logger &logger;

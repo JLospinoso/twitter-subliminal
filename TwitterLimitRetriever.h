@@ -31,7 +31,7 @@ public:
         return true;
     }
 private:
-    void print_limit(std::string description, Poco::JSON::Object::Ptr element) {
+    void print_limit(const std::string &description, Poco::JSON::Object::Ptr element) {
         if(element.isNull() || !element->has("remaining") || !element->has("limit")) {
             logger.information("%s not mentioned in rate limits.", description);
             return;

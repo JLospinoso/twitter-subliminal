@@ -7,7 +7,7 @@
 
 class StringBitIterator : public BitIterator {
 public:
-    StringBitIterator(std::string as_str) :
+    StringBitIterator(const std::string &as_str) :
             as_str(as_str), bits(8*as_str.length()),
             char_index(0) {
         configure_bitset();

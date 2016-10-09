@@ -67,7 +67,7 @@ private:
         twitter->stream([this](std::string x){ this->process_input(x); });
     }
 
-    void process_input(std::string tweet_json) {
+    void process_input(const std::string &tweet_json) {
         auto input_length = tweet_json.size();
         poco_debug_f1(logger, "Processing input of length %?u", input_length);
         std::lock_guard<std::mutex> acquired_lock(processing_lock);

@@ -30,7 +30,7 @@ public:
     }
 
 private:
-    std::vector<Tweet> get_all(emplace_fn do_emplace) {
+    std::vector<Tweet> get_all(const emplace_fn &do_emplace) {
         logger.debug("Querying Twitter for a list of tweets.");
         auto root = query_twitter().extract<Poco::JSON::Array::Ptr>();
         std::vector<Tweet> result;
@@ -51,7 +51,7 @@ private:
         return result;
     }
 
-    Poco::Dynamic::Var query_twitter(std::string max_id = "") {
+    Poco::Dynamic::Var query_twitter(const std::string &max_id = "") {
         std::string response = twitter->timelineUserGet(true, max_id);
         parser.reset();
         return parser.parse(response);

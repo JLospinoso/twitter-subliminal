@@ -11,9 +11,9 @@
 template <size_t block_size>
 class TwitterSubliminalContainer {
 public:
-    TwitterSubliminalContainer(std::string consumer_key, std::string secret_key, 
-                               std::string access_token, std::string access_token_secret,
-                               std::string ca_path, std::string lang) {
+    TwitterSubliminalContainer(const std::string &consumer_key, const std::string &secret_key,
+                               const std::string &access_token, const std::string &access_token_secret,
+                               const std::string &ca_path, const std::string &lang) {
         tc_factory = std::unique_ptr<TwitterFactory>(new TwitterFactory(consumer_key, secret_key, access_token, access_token_secret, ca_path, lang));
     }
 
@@ -54,7 +54,7 @@ private:
 };
 
 template <size_t block_size>
-TwitterSubliminalContainer<block_size> container(std::string consumer_key, std::string secret_key, std::string access_token,
-                                                 std::string access_token_secret, std::string ca_path, std::string lang) {
+TwitterSubliminalContainer<block_size> container(const std::string &consumer_key, const std::string &secret_key, const std::string &access_token,
+                                                 const std::string &access_token_secret, const std::string &ca_path, const std::string &lang) {
     return TwitterSubliminalContainer<block_size>(consumer_key, secret_key, access_token, access_token_secret, ca_path, lang);
 }
