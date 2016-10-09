@@ -1,4 +1,4 @@
-![Twitter Subliminal](TwitterSubliminal.png "Twitter Subliminal")
+![Twitter Subliminal](https://github.com/JLospinoso/twitter-subliminal/raw/master/TwitterSubliminal.png "Twitter Subliminal")
 
 # Register a Twitter Application
 You'll have to go to [https://apps.twitter.com/](https://apps.twitter.com/) and register for a new app. Once you've done this,
@@ -10,6 +10,8 @@ Click "Create my access token", and save the Access Token and Access Token Secre
 After this process, you should have four (4) total tokens.
 
 # Easiest: Run from Docker
+
+[![Docker Repository on Quay](https://quay.io/repository/jlospinoso/twitter-subliminal/status "Docker Repository on Quay")](https://quay.io/repository/jlospinoso/twitter-subliminal)
 
 ```sh
 docker run -it --rm \
@@ -60,7 +62,7 @@ blocks.trial : 10
 If you have a directory with Certificate Authorities available in your environment, e.g. `/etc/ssl/certs` on
 *nix, you can fill in `ca.path` with this value.
 
-`lang` can be changed to the language you'd like your original tweets to be in. See [https://dev.twitter.com/streaming/overview][https://dev.twitter.com/streaming/overview].
+`lang` can be changed to the language you'd like your original tweets to be in. See [https://dev.twitter.com/streaming/overview](https://dev.twitter.com/streaming/overview).
 
 # Binaries
 You can either use the binaries from the /bin folder, or you can build your own. Just make sure that `twitter-subliminal.properties` is in the working directory.
@@ -79,10 +81,10 @@ cd twitter-subliminal
 git clone git@github.com:google/googletest
 ```
 
-Next, ensure [Poco][http://pocoproject.org/] is installed in your environment. You won't need
+Next, ensure [Poco](http://pocoproject.org/) is installed in your environment. You won't need
 any of the Data or persistence bindings--NetSSL, Crypto, and the Core should do it. On Windows/Cygwin,
-you can install this with the Cygwin installer/package manager; on OS X, you can use [homebrew][http://brew.sh/],
-and on Linux you can check your favorite package manager, but it's easy enough to [install from source][http://pocoproject.org/download/].
+you can install this with the Cygwin installer/package manager; on OS X, you can use [homebrew](http://brew.sh/),
+and on Linux you can check your favorite package manager, but it's easy enough to [install from source](http://pocoproject.org/download/).
 
 Input your Poco configuration information into the cmake finder:
 
@@ -115,7 +117,7 @@ make
 This will compile and link all of your binaries into the build folder.
 
 # Building on Windows (cygwin)
-From a [Cygwin terminal][https://cygwin.com/],
+From a [Cygwin terminal](https://cygwin.com/),
 
 ```sh
 mkdir build
